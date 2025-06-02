@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 
 import '../css/student.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 export default function StudentForm() {
+
+  const stuListForm = useNavigate();
 
     const [res,setRes] = useState('');
 
@@ -58,7 +61,7 @@ const sendData =(e:FormDataEvent)=>{
     .then(
         (res)=>{
             console.log("data from spring boot-->"+res.data);
-            setRes(res.data);
+            stuListForm("/");
         }
     );
 }
